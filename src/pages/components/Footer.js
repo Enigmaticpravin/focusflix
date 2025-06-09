@@ -91,7 +91,7 @@ const Footer = () => {
               </div>
               
               <p className="text-gray-300 leading-relaxed max-w-md">
-                Capturing timeless moments through weddings, events, and life's most cherished stories. 
+                Capturing timeless moments through weddings, events, and life&apos;s most cherished stories. 
                 Based in Delhi, available nationwide for your special occasions.
               </p>
               
