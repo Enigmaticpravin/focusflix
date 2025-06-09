@@ -18,10 +18,10 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div className="w-full px-6 py-16 bg-[#0d0d0d] text-white">
+    <div className="w-full px-6 mb-10 bg-[#0d0d0d] text-white">
       <div className="max-w-5xl mx-auto text-center">
       <div className='w-full justify-center text-center items-center flex flex-col mt-10'>
-        <p className='text-lg text-white'>
+        <p className='md:text-2xl text-xl text-white'>
           What Our{' '}
           <span className='text-amber-400 font-bold my-class'>Clients</span>{' '}
           Talks About Us

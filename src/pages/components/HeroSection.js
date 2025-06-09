@@ -79,7 +79,7 @@ const HeroSection = () => {
             </span>
           </h1>
 
-           <div className={`inline-flex items-center space-x-2 px-4 py-2 mb-6 mt-6 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-xl border border-white/30 rounded-full transform transition-all duration-700 ${
+           <div className={`inline-flex items-center space-x-2 mx-20 md:px-4 py-2 mb-6 mt-6 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-xl border border-white/30 rounded-full transform transition-all duration-700 ${
             isLoaded ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
           }`} style={{ transitionDelay: '0.3s' }}>
             <div className='w-2 h-2 bg-amber-400 rounded-full animate-pulse' />

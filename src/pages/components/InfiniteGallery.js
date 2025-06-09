@@ -8,42 +8,33 @@ const images = [
   '/images/herothree.png',
   '/images/herofour.png',
   '/images/herofive.jpg',
+  '/images/herosix.jpg',
+  '/images/herotwo.png',
+  '/images/herothree.png',
 ]
 
-const InfiniteGallery = () => {
+const ResponsivePhotoGrid = () => {
   return (
-    <div className="overflow-hidden w-full bg-[#0d0d0d]">
-      <div className="relative w-max animate-slide flex gap-2 md:gap-6">
-        {[...images, ...images].map((img, index) => (
-          <div key={index} className="md:min-w-[200px] md:h-[200px] h-[150px] flex-shrink-0 rounded-xl overflow-hidden shadow-lg border-2 border-amber-400">
+    <div className="w-full bg-[#0d0d0d] px-4">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+        {images.map((img, index) => (
+          <div
+            key={index}
+            className="overflow-hidden rounded-xl border-2 border-amber-400 shadow-lg group"
+          >
             <Image
               src={img}
               alt={`Gallery ${index}`}
               width={300}
               height={200}
-              className="w-full h-full object-cover"
+              className="w-full h-40 object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
               unoptimized
             />
           </div>
         ))}
       </div>
-
-      {/* Tailwind animation */}
-      <style jsx>{`
-        @keyframes slide {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-slide {
-          animation: slide 30s linear infinite;
-        }
-      `}</style>
     </div>
   )
 }
 
-export default InfiniteGallery
+export default ResponsivePhotoGrid
