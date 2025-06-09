@@ -110,7 +110,7 @@ export default function AchievementStrip () {
         <div className='max-w-7xl mx-auto px-4'>
           <div className='w-full justify-center text-center items-center flex flex-col mb-10'>
             <p className='md:text-2xl text-xl text-white'>
-              Here's our{' '}
+              Here&apos;s our{' '}
               <span className='text-black font-bold my-class'>Journey</span> in
               Numbers
             </p>

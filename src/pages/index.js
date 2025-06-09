@@ -155,7 +155,7 @@ const HeroCarousel = () => {
       <div className='w-full justify-center text-center items-center flex flex-col mt-10'>
         <p className='md:text-2xl text-xl text-white'>
           Explore{' '}
-          <span className='text-amber-400 font-bold my-class'>Delhi's</span>{' '}
+          <span className='text-amber-400 font-bold my-class'>Delhi&apos;s</span>{' '}
           best wedding <br></br>videography and photography agency
         </p>
         <div className='w-[20%] my-5 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent'></div>
@@ -247,7 +247,7 @@ const HeroCarousel = () => {
                   <option value="1l-2l">₹50,000 - ₹2,00,000</option>
                   <option value="2l-5l">₹2,00,000 - ₹5,00,000</option>
                   <option value="above-5l">Above ₹5,00,000</option>
-                  <option value="discuss">Let's Discuss</option>
+                  <option value="discuss">Let&apos;s Discuss</option>
                 </select>
               </div>
               {/* Form Actions */}
@@ -271,7 +271,7 @@ const HeroCarousel = () => {
             <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            Thank you! We'll be in touch soon.
+            Thank you! We&apos;ll be in touch soon.
           </div>
         </div>
       )}
