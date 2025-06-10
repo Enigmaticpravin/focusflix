@@ -26,13 +26,10 @@ const Footer = () => {
 
   const quickLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
+        { name: 'Gallery', href: '#gallery' },
     { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Gallery', href: '#gallery' },
     { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'About Us', href: '#about-us' }
   ]
 
   const socialLinks = [
@@ -45,7 +42,7 @@ const Footer = () => {
     { 
       name: 'Instagram', 
       icon: Instagram, 
-      href: 'https://instagram.com',
+      href: 'https://www.instagram.com/focus_flix_studio/',
       color: 'hover:text-pink-400'
     },
     { 
@@ -75,11 +72,11 @@ const Footer = () => {
       <div className="relative z-10">
         
         {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
+        <div className="max-w-7xl mx-auto px-6 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             
             {/* Brand Info */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2">
               <div className="group">
                 <Image 
                   src="/images/Focus Flix.png" 
@@ -96,7 +93,7 @@ const Footer = () => {
               </p>
               
               {/* Services Quick Icons */}
-              <div className="flex flex-wrap gap-4 mt-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mt-6">
                 {services.map((service, index) => {
                   const Icon = service.icon
                   return (
@@ -111,7 +108,6 @@ const Footer = () => {
                 })}
               </div>
 
-              {/* Social Media Links */}
               <div className="flex gap-4 pt-4">
                 {socialLinks.map((social, index) => {
                   const Icon = social.icon
@@ -132,13 +128,12 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div className="space-y-6">
               <h4 className="text-xl font-bold text-white relative">
                 Quick Links
                 <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-amber-400 to-transparent" />
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-3 md:block">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
                     <a 
@@ -153,7 +148,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Info */}
             <div className="space-y-6">
               <h4 className="text-xl font-bold text-white relative">
                 Get In Touch
@@ -170,7 +164,7 @@ const Footer = () => {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wider">Call Us</p>
-                    <p className="text-white font-medium">+91 98765 43210</p>
+                    <p className="text-white font-medium">+91 99105 53381</p>
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
                 </a>
@@ -200,9 +194,9 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* CTA Button */}
               <a 
-                href="#contact" 
+                href="https://wa.me/919910553381?text=I%20would%20like%20to%20get%20a%20quote%20for%20my%20event." 
+                target="_blank"
                 className="group inline-flex items-center gap-2 w-full justify-center px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-500 text-black font-semibold rounded-xl hover:from-amber-500 hover:to-amber-600 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-amber-400/25"
               >
                 Get Free Quote
@@ -212,7 +206,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider with Gradient */}
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent h-px" />
           <div className="mx-6 h-px bg-white/10" />

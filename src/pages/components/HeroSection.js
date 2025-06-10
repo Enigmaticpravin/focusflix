@@ -35,7 +35,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className='relative w-full min-h-screen overflow-hidden'>
+    <div className='relative w-full min-h-screen overflow-hidden' id='home'>
       
       {/* Main GIF Background */}
       <div className='absolute inset-0'>
@@ -79,13 +79,15 @@ const HeroSection = () => {
             </span>
           </h1>
 
-           <div className={`inline-flex items-center space-x-2 mx-20 md:px-4 py-2 mb-6 mt-6 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-xl border border-white/30 rounded-full transform transition-all duration-700 ${
+           <div className={`inline-flex items-center space-x-2 md:px-4 py-2 mb-6 mt-6 transform transition-all duration-700 ${
             isLoaded ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
           }`} style={{ transitionDelay: '0.3s' }}>
-            <div className='w-2 h-2 bg-amber-400 rounded-full animate-pulse' />
-            <span className='text-white/90 md:text-sm md:flex hidden font-medium tracking-wider'>PREMIUM PHOTOGRAPHY & VIDEOGRAPHY FOR <br></br>WEDDINGS, EVENTS AND BRANDS</span>
-             <span className='text-white/90 md:text-sm text-xs md:hidden flex font-medium tracking-wider'>PREMIUM PHOTOGRAPHY & VIDEOGRAPHY FOR WEDDINGS, EVENTS AND BRANDS</span>
-            <div className='w-2 h-2 bg-amber-400 rounded-full animate-pulse' />
+    
+            <div>
+              <p className='text-xs md:text-lg mb-2 uppercase' style={{ fontFamily: 'Helvetica, sans-serif' }}>Luxury Videography & Photography for</p>
+              <p className='text-white text-lg md:text-2xl font-bold bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-xl border border-white/30 rounded-full'><span className='my-class text-amber-400'>W</span>eddings • <span className='my-class text-amber-400'>E</span>vents • <span className='my-class text-amber-400'>B</span>rands</p>
+            </div>
+  
           </div>
 <div
   className={`flex items-center justify-center gap-4 sm:gap-6 mb-12 transform transition-all duration-700 ${
@@ -95,7 +97,7 @@ const HeroSection = () => {
 >
   {/* WhatsApp Button */}
   <a
-    href='https://wa.me/919999999999'
+    href='https://wa.me/919910553381?text=I%20would%20like%20to%20get%20a%20quote%20for%20my%20event.'
     target='_blank'
     rel='noopener noreferrer'
     className='relative w-12 h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-green-400 shadow-xl hover:shadow-green-400/50 transition-all duration-300 group hover:scale-110'
@@ -109,11 +111,15 @@ const HeroSection = () => {
     <span className='absolute -inset-px rounded-full bg-green-400 opacity-0 group-hover:opacity-10 blur-2xl transition duration-500' />
   </a>
 
-            <button className='relative cursor-pointer px-4 py-2 md:px-8 md:py-2 rounded-full bg-white/10 backdrop-blur-md border border-amber-400 text-amber-300 font-semibold text-lg shadow-xl hover:shadow-amber-400/40 transition-all duration-300 overflow-hidden group hover:scale-105'>
-              <span className='relative z-10'>Contact Us</span>
-              <span className='absolute inset-0 rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 opacity-20 blur-lg group-hover:opacity-30 transition duration-300'></span>
-              <span className='absolute -inset-px rounded-full bg-amber-400 opacity-0 group-hover:opacity-10 blur-2xl transition duration-500' />
-            </button>
+           <a href="tel:+919910553381" className="inline-block">
+  <button 
+    className='relative cursor-pointer px-4 py-2 md:px-8 md:py-2 rounded-full bg-white/10 backdrop-blur-md border border-amber-400 text-amber-300 font-semibold text-lg shadow-xl hover:shadow-amber-400/40 transition-all duration-300 overflow-hidden group hover:scale-105'
+  >
+    <span className='relative z-10'>Contact Us</span>
+    <span className='absolute inset-0 rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 opacity-20 blur-lg group-hover:opacity-30 transition duration-300'></span>
+    <span className='absolute -inset-px rounded-full bg-amber-400 opacity-0 group-hover:opacity-10 blur-2xl transition duration-500' />
+  </button>
+</a>
           </div>
         </div>
         <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-700 ${
@@ -128,8 +134,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-
-      {/* Custom CSS for animations */}
       <style jsx>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }

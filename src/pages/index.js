@@ -11,6 +11,7 @@ import Navbar from './components/Navbar'
 import WhatsAppCTA from './components/WhatsappCTA'
 import HeroSection from './components/HeroSection'
 import AchievementStrip from './components/AchievementStrip'
+import ServicesSection from './components/ServicesSection'
 
 const HeroCarousel = () => {
   const [currentImage, setCurrentImage] = useState(0)
@@ -50,31 +51,41 @@ const HeroCarousel = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.phone || !formData.eventType || !formData.budget) {
-      alert('Please fill in all required fields');
-      return;
-    }
-    
-    // Here you would typically send the data to your API
-    console.log('Wedding inquiry submitted:', formData);
-    
-    // Hide form and mark as submitted
-    setShowForm(false);
-    setFormSubmitted(true);
-    setShowToast(true);
-    
-    // Reset form data
-    setFormData({
-      name: '',
-      phone: '',
-      eventType: '',
-      budget: '',
-      message: ''
-    });
-  };
+ const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const { name, phone, eventType, budget, message } = formData;
+
+  if (!name || !phone || !eventType || !budget) {
+    alert('Please fill in all required fields');
+    return;
+  }
+
+  const text = `Hello! I'm interested in your services.\n\n` +
+               `Name: ${name}\n` +
+               `Phone: ${phone}\n` +
+               `Event Type: ${eventType}\n` +
+               `Budget: ${budget}\n` +
+               (message ? `Message: ${message}` : '');
+
+  const encodedText = encodeURIComponent(text);
+  const phoneNumber = '919910553381';
+
+  window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
+
+  setShowForm(false);
+  setFormSubmitted(true);
+  setShowToast(true);
+
+  setFormData({
+    name: '',
+    phone: '',
+    eventType: '',
+    budget: '',
+    message: ''
+  });
+};
+
 
   const closeForm = () => {
     setShowForm(false);
@@ -111,46 +122,9 @@ const HeroCarousel = () => {
   }, [heroImages.length])
 
   return (
-    <div className='w-full bg-[#0d0d0d]'>
+    <div className='w-full bg-[#0d0d0d] scroll-smooth'>
       <Navbar logo={logo} />
      <HeroSection />
-
-      <div className='w-full justify-center items-center h-[600px] hidden'>
-        {' '}
-    
-        <div className='w-1/2 h-full overflow-hidden flex items-center justify-center'>
-          <div
-            className='flex transition-transform duration-700 ease-in-out h-full'
-            style={{ transform: `translateX(-${currentImage * 100}%)` }}
-          >
-            {heroImages.map((image, index) => (
-              <div
-                key={index}
-                className='min-w-full h-full flex justify-center items-center'
-              >
-                <Image
-                  src={image.url}
-                  alt={image.title}
-                  width={960}
-                  height={600}
-                  className='w-full h-full object-cover rounded-xl border-2 border-amber-400 shadow-lg'
-                  unoptimized
-                  priority
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className='w-1/2 h-full flex justify-center items-center'>
-          <img
-            src='/images/focusvideo.gif'
-            alt='Focus GIF'
-            className='w-full h-full object-cover rounded-xl border-2 border-amber-400 shadow-lg'
-          />
-                        <div className='absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[
-#0d0d0d] via-black/30 to-transparent pointer-events-none' />
-        </div>
-      </div>
 
       <div className='w-full justify-center text-center items-center flex flex-col mt-10'>
         <p className='md:text-2xl text-xl text-white'>
@@ -161,6 +135,7 @@ const HeroCarousel = () => {
         <div className='w-[20%] my-5 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent'></div>
       </div>
       <InfiniteGallery></InfiniteGallery>
+      <ServicesSection />
       <Testimonials></Testimonials>
       <AchievementStrip />
       <WhatsAppCTA />
@@ -242,7 +217,7 @@ const HeroCarousel = () => {
                   className="w-full px-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200 outline-none bg-white"
                 >
                   <option value="">Select your budget</option>
-                  <option value="under-50k">Under ₹10,000</option>
+                  <option value="under-50k">Under ₹15,000</option>
                   <option value="50k-1l">₹20,000 - ₹50,000</option>
                   <option value="1l-2l">₹50,000 - ₹2,00,000</option>
                   <option value="2l-5l">₹2,00,000 - ₹5,00,000</option>
@@ -255,7 +230,7 @@ const HeroCarousel = () => {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-white rounded-lg hover:from-pink-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="w-full cursor-pointer px-6 py-3 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-white rounded-lg hover:from-yellow-500 via-yellow-600 hover:to-orange-400 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   Get My Quote
                 </button>

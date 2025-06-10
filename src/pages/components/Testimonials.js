@@ -18,7 +18,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div className="w-full px-6 mb-10 bg-[#0d0d0d] text-white">
+    <div className="w-full px-6 mb-10 bg-[#0d0d0d] text-white" id="testimonials">
       <div className="max-w-5xl mx-auto text-center">
       <div className='w-full justify-center text-center items-center flex flex-col mt-10'>
         <p className='md:text-2xl text-xl text-white'>

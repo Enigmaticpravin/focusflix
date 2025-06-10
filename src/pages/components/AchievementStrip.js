@@ -191,7 +191,7 @@ export default function AchievementStrip () {
           <div className='w-full flex justify-center items-center mb-10'>
             <div className='relative flex gap-6'>
               {/* Left Image */}
-              <div className='relative w-[200px] h-[200px] md:w-[300px] md:h-[400px] transform rotate-[-6deg] shadow-2xl rounded-xl overflow-hidden border-4 border-white z-10'>
+              <div className='relative w-[160px] h-[200px] md:w-[300px] md:h-[400px] transform rotate-[-6deg] shadow-2xl rounded-xl overflow-hidden border-4 border-white z-10'>
                 <Image
                   src='/images/heroseven.jpg'
                   alt='Photo 1'
@@ -201,7 +201,7 @@ export default function AchievementStrip () {
               </div>
 
               {/* Right Image (slightly overlapping back) */}
-              <div className='relative w-[200px] h-[200px] md:w-[300px] md:h-[400px] -ml-12 transform rotate-[6deg] shadow-xl rounded-xl overflow-hidden border-4 border-white z-0'>
+              <div className='relative w-[160px] h-[200px] md:w-[300px] md:h-[400px] -ml-12 transform rotate-[6deg] shadow-xl rounded-xl overflow-hidden border-4 border-white z-0'>
                 <Image
                   src='/images/heroeight.jpg'
                   alt='Photo 2'

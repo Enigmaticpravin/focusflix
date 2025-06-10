@@ -10,15 +10,15 @@ const Navbar = ({ logo }) => {
 
   const menuItems = [
     { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
+    { label: 'Gallery', href: '#gallery' },
     { label: 'Services', href: '#services' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Testimonials', href: '#testimonials' }
+    { label: 'Testimonials', href: '#testimonials' },
+    { label: 'About Us', href: '#about-us' }
   ];
 
   const socialLinks = [
-    { icon: PhoneCall, href: 'tel:+1234567890', label: 'Phone' },
-    { icon: Instagram, href: 'https://instagram.com', target: '_blank', label: 'Instagram' },
+    { icon: PhoneCall, href: 'tel:+919910553381', label: 'Phone' },
+    { icon: Instagram, href: 'https://www.instagram.com/focus_flix_studio/?hl=en', target: '_blank', label: 'Instagram' },
     { icon: Youtube, href: 'https://youtube.com', target: '_blank', label: 'YouTube' }
   ];
 
@@ -39,6 +39,8 @@ const Navbar = ({ logo }) => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     document.body.style.overflow = 'unset';
+    window.location.href = 'tel:+919910553381';
+
   };
 
   return (
@@ -47,8 +49,8 @@ const Navbar = ({ logo }) => {
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4">
         <div className={`max-w-7xl mx-auto transition-all duration-700 ease-out transform ${
           scrolled 
-            ? 'backdrop-blur-xl bg-gradient-to-r from-white/25 via-white/20 to-white/25 shadow-2xl shadow-black/10 border border-white/30' 
-            : 'backdrop-blur-lg bg-gradient-to-r from-white/15 via-white/10 to-white/15 shadow-xl shadow-black/5 border border-white/20'
+            ? 'backdrop-blur-sm bg-gradient-to-r from-white/25 via-white/20 to-white/25 shadow-2xl shadow-black/10 border border-white/30' 
+            : 'backdrop-blur-sm bg-gradient-to-r from-white/15 via-white/10 to-white/15 shadow-xl shadow-black/5 border border-white/20'
         } rounded-2xl ${scrolled ? 'scale-[0.98]' : 'scale-100'}`}>
           
           <div className={`flex items-center justify-between px-6 lg:px-8 transition-all duration-500 ${
@@ -67,8 +69,6 @@ const Navbar = ({ logo }) => {
                 />
               </div>
             </div>
-
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-2">
               {menuItems.map((item, index) => (
                 <a
@@ -84,7 +84,6 @@ const Navbar = ({ logo }) => {
               ))}
             </div>
 
-            {/* Desktop Social Links & CTA */}
             <div className="hidden md:flex items-center space-x-3">
               <div className="flex items-center space-x-2 bg-white/5 rounded-full px-3 py-2 backdrop-blur-sm border border-white/10">
                 {socialLinks.map((social, index) => (
@@ -100,15 +99,18 @@ const Navbar = ({ logo }) => {
                   </a>
                 ))}
               </div>
-              
-              <button className="relative group bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 text-black px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-amber-400/50 overflow-hidden">
+
+              <a href="tel:+919910553381" className="inline-block cursor-pointer">
+   <button className="relative group bg-gradient-to-r cursor-pointer from-amber-400 via-amber-500 to-amber-400 text-black px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-500 hover:scale-105 hover:shadow-2xl shadow-amber-400/50 overflow-hidden">
                 <span className="relative z-10">Contact Us</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-amber-500 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
               </button>
+</a>
+              
+           
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
               className="lg:hidden relative z-50 p-3 rounded-2xl bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm border border-white/30 transition-all duration-500 hover:bg-white/25 hover:scale-110 hover:rotate-180 group"
@@ -136,7 +138,6 @@ const Navbar = ({ logo }) => {
         isMobileMenuOpen ? 'visible' : 'invisible'
       }`}>
         
-        {/* Animated Backdrop */}
         <div 
           className={`absolute inset-0 transition-all duration-1000 ${
             isMobileMenuOpen 
@@ -146,19 +147,16 @@ const Navbar = ({ logo }) => {
           onClick={closeMobileMenu}
         />
         
-        {/* Mobile Menu Panel */}
         <div className={`absolute top-0 left-4 right-4 mt-24 rounded-3xl bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-2xl shadow-2xl border border-white/50 transform transition-all duration-1000 ease-out overflow-hidden ${
           isMobileMenuOpen 
             ? 'translate-y-0 opacity-100 scale-100' 
             : '-translate-y-full opacity-0 scale-95'
         }`}>
           
-          {/* Decorative Top Bar */}
           <div className="h-1 w-full bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
           
           <div className="p-8">
             
-            {/* Mobile Navigation Links */}
             <div className="space-y-3 mb-8">
               {menuItems.map((item, index) => (
                 <div
@@ -185,12 +183,10 @@ const Navbar = ({ logo }) => {
               ))}
             </div>
 
-            {/* Divider */}
             <div className={`h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-8 transform transition-all duration-700 ${
               isMobileMenuOpen ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
             }`} style={{ transitionDelay: isMobileMenuOpen ? '0.8s' : '0s' }}></div>
 
-            {/* Mobile Social Links */}
             <div className={`flex items-center justify-center space-x-6 mb-8 transform transition-all duration-700 ${
               isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`} style={{ transitionDelay: isMobileMenuOpen ? '0.9s' : '0s' }}>
@@ -209,7 +205,6 @@ const Navbar = ({ logo }) => {
               ))}
             </div>
 
-            {/* Mobile CTA Button */}
             <div className={`transform transition-all duration-700 ${
               isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`} style={{ transitionDelay: isMobileMenuOpen ? '1s' : '0s' }}>
@@ -225,7 +220,6 @@ const Navbar = ({ logo }) => {
             </div>
           </div>
 
-          {/* Decorative Bottom Bar */}
           <div className="h-1 w-full bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
         </div>
       </div>
