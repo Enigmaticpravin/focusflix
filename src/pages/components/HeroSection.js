@@ -84,7 +84,7 @@ const HeroSection = () => {
           }`} style={{ transitionDelay: '0.3s' }}>
     
             <div>
-              <p className='text-xs md:text-lg mb-2 uppercase' style={{ fontFamily: 'Helvetica, sans-serif' }}>Luxury Videography & Photography for</p>
+              <p className='text-xs text-white md:text-lg mb-2 uppercase' style={{ fontFamily: 'Helvetica, sans-serif' }}>Luxury Videography & Photography for</p>
               <p className='text-white text-lg md:text-2xl font-bold bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-xl border border-white/30 rounded-full'><span className='my-class text-amber-400'>W</span>eddings • <span className='my-class text-amber-400'>E</span>vents • <span className='my-class text-amber-400'>B</span>rands</p>
             </div>
   
