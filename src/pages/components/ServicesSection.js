@@ -4,19 +4,22 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 const services = [
-  { title: 'Wedding Photography', image: '/images/wedding.jpg' },
-  { title: 'Pre Weddings', image: '/images/prewedding.JPG' },
-  { title: 'Events Photography', image: '/images/events.jpg' },
-  { title: 'Maternity Shoot', image: '/images/maternity.webp' },
-  { title: 'Baby Shoot', image: '/images/baby.jpg' },
+  { title: 'Wedding Photography', image: '/images/wedding/wedding1.jpg', slug: 'wedding' },
+  { title: 'Pre Weddings', image: '/images/pre-wedding/pre-wedding-4.JPG', slug: 'pre-wedding' },
+  { title: 'Events Photography', image: '/images/events/event-1.jpg', slug: 'events' },
+  { title: 'Maternity Shoot', image: '/images/maternity/maternity-1.jpg', slug: 'maternity' },
+  { title: 'Baby Shoot', image: '/images/baby-shoot/baby-1.jpg', slug: 'baby-shoot' },
 ]
+
 
 const ServicesSection = () => {
   const [clickedIndex, setClickedIndex] = useState(null)
 
   const handleClick = (index) => {
+    const category = services[index].slug
     setClickedIndex(index)
     setTimeout(() => setClickedIndex(null), 600)
+    window.location.href = `/gallery/${category}`
   }
 
   return (
@@ -61,16 +64,14 @@ const ServicesSection = () => {
                 ${clickedIndex === i ? 'scale-95 brightness-90' : ''}
               `}
             />
-            
-            {/* Glass effect overlay */}
+
             <div className={`
               absolute inset-0 rounded-2xl transition-all duration-500 ease-out
               bg-gradient-to-br from-white/5 via-transparent to-blue-500/10
               hover:from-white/10 hover:to-blue-500/20
               ${clickedIndex === i ? 'from-white/20 to-blue-500/30' : ''}
             `} />
-            
-            {/* Bubble ripple effect */}
+
             <div className={`
               absolute inset-0 rounded-2xl pointer-events-none
               ${clickedIndex === i ? 'animate-ripple' : ''}

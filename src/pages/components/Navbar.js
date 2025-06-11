@@ -3,17 +3,19 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { PhoneCall, Instagram, Youtube, Menu, X } from 'lucide-react';
+import { useRouter } from 'next/router';
 
 const Navbar = ({ logo }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter()
 
   const menuItems = [
-    { label: 'Home', href: '#home' },
+    { label: 'Home', href: '/' },
     { label: 'Gallery', href: '#gallery' },
     { label: 'Services', href: '#services' },
     { label: 'Testimonials', href: '#testimonials' },
-    { label: 'About Us', href: '#about-us' }
+    { label: 'About Us', href: '/about-us' }
   ];
 
   const socialLinks = [
@@ -32,20 +34,40 @@ const Navbar = ({ logo }) => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    // Prevent body scroll when menu is open
     document.body.style.overflow = !isMobileMenuOpen ? 'hidden' : 'unset';
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     document.body.style.overflow = 'unset';
-    window.location.href = 'tel:+919910553381';
 
   };
+  const handleCall = () => {
+    window.location.href = 'tel:+919910553381';
+    closeMobileMenu();
+  };
+  const handleMenuClick = async (href) => {
+  if (href.startsWith('#')) {
+    const sectionId = href.replace('#', '')
+
+    if (router.pathname !== '/') {
+      await router.push(`/#${sectionId}`, undefined, { scroll: false })
+      closeMobileMenu()
+    } else {
+      const el = document.getElementById(sectionId)
+            closeMobileMenu()
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+              closeMobileMenu()
+      }
+    }
+  } else {
+    router.push(href)
+  }
+}
 
   return (
     <>
-      {/* Main Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4">
         <div className={`max-w-7xl mx-auto transition-all duration-700 ease-out transform ${
           scrolled 
@@ -64,6 +86,8 @@ const Navbar = ({ logo }) => {
                   src={logo} 
                   alt="Focus Flix Logo" 
                   width={scrolled ? 120 : 140} 
+                  onClick={() => router.push('/')}
+                  style={{ cursor: 'pointer' }}
                   height={scrolled ? 34 : 40}
                   className="transition-all duration-500 drop-shadow-lg"
                 />
@@ -73,8 +97,8 @@ const Navbar = ({ logo }) => {
               {menuItems.map((item, index) => (
                 <a
                   key={item.href}
-                  href={item.href}
-                  className="relative group px-4 py-2 text-white/90 hover:text-white transition-all duration-500 font-medium text-sm rounded-xl hover:bg-white/10"
+                   onClick={() => handleMenuClick(item.href)}
+                  className="relative group px-4 cursor-pointer py-2 text-white/90 hover:text-white transition-all duration-500 font-medium text-sm rounded-xl hover:bg-white/10"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <span className="relative z-10">{item.label}</span>
@@ -172,7 +196,7 @@ const Navbar = ({ logo }) => {
                 >
                   <a
                     href={item.href}
-                    onClick={closeMobileMenu}
+                   onClick={() => handleMenuClick(item.href)}
                     className="group block px-6 py-4 text-gray-800 hover:text-amber-600 rounded-2xl transition-all duration-500 font-medium text-lg relative overflow-hidden hover:scale-105"
                   >
                     <span className="relative z-10">{item.label}</span>
@@ -210,7 +234,7 @@ const Navbar = ({ logo }) => {
             }`} style={{ transitionDelay: isMobileMenuOpen ? '1s' : '0s' }}>
               <button 
                 className="group relative w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 text-black px-8 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-amber-500/50 transition-all duration-700 hover:scale-[1.02] overflow-hidden"
-                onClick={closeMobileMenu}
+                onClick={handleCall}
               >
                 <span className="relative z-10">Contact Us</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

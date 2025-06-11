@@ -25,11 +25,11 @@ const Footer = () => {
   ]
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '/' },
         { name: 'Gallery', href: '#gallery' },
     { name: 'Services', href: '#services' },
     { name: 'Testimonials', href: '#testimonials' },
-    { name: 'About Us', href: '#about-us' }
+    { name: 'About Us', href: '/about-us' }
   ]
 
   const socialLinks = [
@@ -75,13 +75,13 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-6 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             
-            {/* Brand Info */}
             <div className="lg:col-span-2">
               <div className="group">
                 <Image 
                   src="/images/Focus Flix.png" 
                   alt="Focus Flix Logo" 
                   width={180} 
+                  onClick={() => window.location.href = '/'}
                   height={50} 
                   className="transition-all duration-300 group-hover:scale-105"
                 />
@@ -224,7 +224,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Made with Love */}
             <div className="flex items-center gap-2 text-sm text-gray-400">
               <span>Made with</span>
               <Heart className="w-4 h-4 text-red-400 animate-pulse" />
