@@ -26,21 +26,21 @@ const HeroCarousel = () => {
     message: ''
   });
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     if (!formSubmitted) {
-  //       setShowForm(true);
-  //  }
-  //   }, 1000);
+useEffect(() => {
+const timer = setTimeout(() => {
+   if (!formSubmitted) {
+  setShowForm(true);
+ }
+  }, 1000);
 
-  //   const toastTimer = setTimeout(() => {
-  //     if (formSubmitted) {
-  //       setShowToast(false);
-  //     }
-  //   }, 5000);
+ const toastTimer = setTimeout(() => {
+  if (formSubmitted) {
+    setShowToast(false);
+    }
+   }, 5000);
 
-  //   return () => clearTimeout(timer);
-  // }, [formSubmitted]);
+ return () => clearTimeout(timer);
+ }, [formSubmitted]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
