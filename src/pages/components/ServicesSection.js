@@ -11,7 +11,6 @@ const services = [
   { title: 'Baby Shoot', image: '/images/baby-shoot/baby-1.jpg', slug: 'baby-shoot' },
 ]
 
-
 const ServicesSection = () => {
   const [clickedIndex, setClickedIndex] = useState(null)
 
